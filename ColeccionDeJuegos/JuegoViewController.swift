@@ -5,10 +5,15 @@ class JuegoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var JuegoImagenView: UIImageView!
     @IBOutlet weak var tituloTextField: UITextField!
     var imagePicker = UIImagePickerController()
+    var juego : Juego? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        if juego != nil{
+            JuegoImagenView.image = UIImage(data: (juego!.imagen!) as Data)
+            tituloTextField.text = juego!.titulo
+        }
         
     }
 
